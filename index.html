@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}</style>
+<title>Qingyi Tao</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Qingyi Tao, Senior Research Scientist at SenseTime, Singapore.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap">
+<style>
+/* Layout: classic academic homepage. One 840px column; intro beside a round portrait; papers as thumbnail + text rows. Single light theme by choice. */
+:root {
+  --bg: #ffffff;
+  --fg: #1f1f1f;
+  --muted: #5f6368;
+  --link: #5b46e5;
+  --hover: #2f7bf6;
+  --rule: #e7e8f3;
+  --highlight: #fdf6e3;
+  --accent2: #22b8e6;
+  --tint: #f5f6ff;
+  --tag-bg: #eef0ff;
+  --tag-fg: #4a3ad6;
+  --tag2-bg: #e6f3ff;
+  --tag2-fg: #1f6fd6;
+  --font: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color-scheme: light;
+}
+body {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(900px 420px at 88% -120px, rgba(91, 70, 229, 0.10), transparent 70%),
+    radial-gradient(700px 380px at 0% -80px, rgba(34, 184, 230, 0.08), transparent 70%),
+    radial-gradient(rgba(91, 70, 229, 0.07) 1px, transparent 1.2px);
+  background-size: auto, auto, 22px 22px;
+  background-repeat: no-repeat, no-repeat, repeat;
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.55;
+}
+body::before {
+  content: ""; display: block; height: 4px;
+  background: linear-gradient(90deg, var(--link), #6b8cff 45%, var(--accent2));
+}
+.wrap {
+  max-width: 840px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 40px 48px;
+}
+a { color: var(--link); text-decoration: none; }
+a:hover, a:focus-visible { color: var(--hover); }
+a:focus-visible { outline: 2px solid var(--hover); outline-offset: 2px; border-radius: 2px; }
+
+/* Intro */
+.intro { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 40px; align-items: center; padding-block: 8px 24px; }
+.name { margin: 0 0 6px; font-size: 38px; font-weight: 700; text-align: center; letter-spacing: 0.005em; color: var(--link); background: linear-gradient(90deg, #5b46e5, #2f7bf6 60%, #22b8e6); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.tagline { text-align: center; color: var(--muted); font-size: 14px; letter-spacing: 0.04em; margin: 0 0 18px !important; }
+.tagline::before, .tagline::after { content: ""; display: inline-block; width: 28px; height: 1px; background: currentColor; opacity: 0.5; vertical-align: middle; margin: 0 10px; }
+.intro p { margin: 0 0 14px; }
+.contact { text-align: center; margin-top: 18px !important; }
+.contact .sep { color: var(--muted); padding: 0 6px; }
+.btn { display: inline-flex; align-items: center; gap: 7px; padding: 6px 14px; border: 1px solid #d9dcfb; border-radius: 999px; background: #ffffff; font-size: 14px; box-shadow: 0 1px 2px rgba(91, 70, 229, 0.08); transition: border-color .15s, box-shadow .15s, transform .15s; }
+.btn:hover { border-color: var(--link); box-shadow: 0 3px 10px rgba(91, 70, 229, 0.15); transform: translateY(-1px); }
+.btn svg { width: 15px; height: 15px; fill: currentColor; }
+.portrait-wrap { position: relative; justify-self: center; width: 240px; max-width: 100%; aspect-ratio: 1; isolation: isolate; }
+.portrait-wrap::before { content: ""; position: absolute; inset: -18px; z-index: -2; border-radius: 50%; background: conic-gradient(from 0deg, #5b46e5, #2f7bf6, #22b8e6, #8f7bff, #5b46e5); filter: blur(26px); opacity: 0.55; animation: aura 14s linear infinite; }
+.portrait-wrap::after { content: ""; position: absolute; inset: 0; z-index: -1; border: 1.5px solid rgba(91, 70, 229, 0.45); transform: translate(14px, 14px); animation: morph 12s ease-in-out infinite; animation-delay: -6s; }
+.portrait { position: relative; width: 100%; height: 100%; object-fit: cover; display: block; box-shadow: 0 18px 40px rgba(30, 30, 90, 0.22); animation: morph 12s ease-in-out infinite; }
+@keyframes morph {
+  0%, 100% { border-radius: 62% 38% 46% 54% / 55% 42% 58% 45%; }
+  33% { border-radius: 40% 60% 58% 42% / 44% 58% 42% 56%; }
+  66% { border-radius: 54% 46% 36% 64% / 62% 38% 62% 38%; }
+}
+@keyframes aura { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .portrait, .portrait-wrap::before, .portrait-wrap::after { animation: none; } .portrait, .portrait-wrap::after { border-radius: 58% 42% 48% 52% / 54% 44% 56% 46%; } }
+
+h2 { font-size: 22px; font-weight: 400; margin: 40px 0 14px; display: flex; align-items: center; gap: 12px; }
+h2::before { content: ""; width: 10px; height: 10px; border-radius: 3px; background: linear-gradient(135deg, var(--link), var(--accent2)); transform: rotate(45deg); flex: none; }
+h2::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--rule), transparent); }
+.lead { margin: 0 0 8px; }
+
+/* Papers with thumbnails */
+.papers { display: grid; gap: 4px; }
+.paper { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 24px; align-items: center; padding: 16px 12px; border-radius: 10px; transition: background-color .2s; }
+.paper:hover { background: var(--tint); }
+.paper:hover .thumb { box-shadow: 0 6px 18px rgba(30, 30, 90, 0.16); transform: translateY(-2px); }
+.paper.hl { background: var(--highlight); }
+.thumb { width: 200px; max-width: 100%; display: block; border-radius: 6px; box-shadow: 0 1px 4px rgba(30, 30, 90, 0.10); transition: box-shadow .2s, transform .2s; }
+.ptitle { font-weight: 700; font-size: 15.5px; color: var(--link); }
+.ptitle:hover { color: var(--hover); }
+.authors { margin: 4px 0 2px; }
+.authors b { font-weight: 700; }
+.venue { display: inline-block; font-style: normal; font-size: 12.5px; font-weight: 700; letter-spacing: 0.02em; color: var(--tag-fg); background: var(--tag-bg); padding: 1px 9px; border-radius: 999px; margin-top: 2px; }
+.paper:nth-child(-n+2) .venue { color: var(--tag2-fg); background: var(--tag2-bg); }
+.plinks { margin-top: 4px; }
+.plinks .sep { color: var(--muted); padding: 0 5px; }
+
+/* Compact list */
+.compact { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.compact li { padding: 4px 12px 4px 16px; border-left: 2px solid var(--rule); transition: border-color .2s; }
+.compact li:hover { border-left-color: var(--link); }
+.compact .t { font-weight: 700; }
+
+/* CV lines */
+.cv { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.cv li { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 12px; }
+.cv .yr { color: var(--muted); font-variant-numeric: tabular-nums; }
+.cv li { position: relative; padding-left: 18px; }
+.cv li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 7px; height: 7px; border-radius: 50%; background: var(--bg); border: 2px solid var(--link); box-sizing: border-box; }
+.cv li:first-child::before { background: var(--link); }
+
+footer { margin-top: 48px; padding-top: 14px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--muted); text-align: right; }
+@media (prefers-reduced-motion: reduce) { .paper, .thumb, .btn { transition: none; } .paper:hover .thumb, .btn:hover { transform: none; } }
+
+@media (max-width: 640px) {
+  .intro { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .portrait-wrap { grid-row: 1; width: 180px; }
+  .paper { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 14px 4px; }
+  .thumb { width: 100%; max-width: 360px; }
+  .compact li { padding: 0 4px; }
+  .cv li { grid-template-columns: minmax(0, 1fr); gap: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <section class="intro">
+    <div>
+      <h1 class="name">Qingyi Tao</h1>
+      <p class="tagline">Senior Research Scientist · SenseTime</p>
+      <p>I am a Senior Research Scientist at <a href="https://www.sensetime.com/en">SenseTime</a> in Singapore, where I work on visual generation, multimodal models and embodied intelligence.</p>
+      <p>I received my Ph.D. from <a href="https://www.mmlab-ntu.com/">MMLab@NTU</a>, Nanyang Technological University, advised by <a href="https://www.mmlab-ntu.com/person/ccloy/">Prof. Chen Change Loy</a> and <a href="https://jianfei-cai.github.io/">Prof. Jianfei Cai</a>. Before SenseTime, I was a Data Scientist at <a href="https://www.nvidia.com/">NVIDIA</a>. I also received my bachelor's degree in Computer Science from NTU.</p>
+      <p class="contact"><a class="btn" href="https://scholar.google.com/citations?user=fMXnSGMAAAAJ&amp;hl=en"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zm-6.5 9.6V16c0 2.2 2.9 4 6.5 4s6.5-1.8 6.5-4v-3.4L12 16.2l-6.5-3.6z"/></svg>Google Scholar</a></p>
+    </div>
+    <div class="portrait-wrap"><img class="portrait" src="images/qingyi.jpg" alt="Portrait of Qingyi Tao" width="240" height="240"></div>
+  </section>
+
+  <h2>Research</h2>
+  <p class="lead">My research is in computer vision, with recent work on image and video generation, unified multimodal models and video matting. More recently, I have been working on embodied intelligence: check out our empirical study <a href="https://www.sensenova.ai/has-gpt-6-astra-achieved-embodied-intelligence">Has GPT-6-Astra Achieved Embodied Intelligence?</a> and a customized world model, named <a href="https://mundo-world-model.github.io/">Mundo</a>.</p>
+
+  <div class="papers">
+    <div class="paper">
+      <a href="https://www.sensenova.ai/has-gpt-6-astra-achieved-embodied-intelligence"><img class="thumb" src="images/gpt6astra.jpg" alt="Has GPT-6-Astra achieved embodied intelligence? title card" loading="lazy"></a>
+      <div>
+        <a class="ptitle" href="https://www.sensenova.ai/has-gpt-6-astra-achieved-embodied-intelligence">Has GPT-6-Astra Achieved Embodied Intelligence?</a>
+        <div class="authors">SenseNova Joint Research Team (project lead)</div>
+        <div class="venue">Technical Report, 2026</div>
+        <div class="plinks"><a href="https://www.sensenova.ai/has-gpt-6-astra-achieved-embodied-intelligence">project page</a><span class="sep">/</span><a href="https://arxiv.org/abs/2610.22471">arXiv</a></div>
+      </div>
+    </div>
+
+    <div class="paper">
+      <a href="https://mundo-world-model.github.io/"><img class="thumb" src="images/mundo.gif" alt="Mundo turning photos of a room into a simulated 3D world" loading="lazy"></a>
+      <div>
+        <a class="ptitle" href="https://mundo-world-model.github.io/">Mundo: Customized World Model</a>
+        <div class="authors">Yihang Luo, Zunnan Xu, Shangchen Zhou, Yushi Lan, Kang Liao, Zerui Gong, Xiaoming Wu, <b>Qingyi Tao</b>, Zhonghua Wu, Bixuan Jin, Fei Wang, Zhi Hou, Xiaogang Wang, Xingang Pan, Chen Change Loy</div>
+        <div class="venue">Preprint, 2026</div>
+        <div class="plinks"><a href="https://mundo-world-model.github.io/">project page</a><span class="sep">/</span><a href="https://huggingface.co/blog/Luo-Yihang/mundo-world-model">blog</a><span class="sep">/</span><a href="https://github.com/Luo-Yihang/Mundo">code</a></div>
+      </div>
+    </div>
+
+    <div class="paper">
+      <a href="https://pq-yang.github.io/projects/MatAnyone2/"><img class="thumb" src="images/matanyone2.jpg" alt="MatAnyone 2 matting results" loading="lazy"></a>
+      <div>
+        <a class="ptitle" href="https://pq-yang.github.io/projects/MatAnyone2/">MatAnyone 2: Scaling Video Matting via a Learned Quality Evaluator</a>
+        <div class="authors">Peiqing Yang, Shangchen Zhou, Kai Hao, <b>Qingyi Tao</b></div>
+        <div class="venue">CVPR, 2026</div>
+        <div class="plinks"><a href="https://pq-yang.github.io/projects/MatAnyone2/">project page</a><span class="sep">/</span><a href="https://arxiv.org/abs/2512.11782">arXiv</a><span class="sep">/</span><a href="https://github.com/pq-yang/MatAnyone2">code</a></div>
+      </div>
+    </div>
+
+    <div class="paper">
+      <a href="https://yikai-wang.github.io/nvg/"><img class="thumb" src="images/nvg.gif" alt="Next visual granularity generation, coarse to fine" loading="lazy"></a>
+      <div>
+        <a class="ptitle" href="https://yikai-wang.github.io/nvg/">Next Visual Granularity Generation</a>
+        <div class="authors">Yikai Wang, Zhouxia Wang, Zhonghua Wu, <b>Qingyi Tao</b>, Kang Liao, Chen Change Loy</div>
+        <div class="venue">ICLR, 2026</div>
+        <div class="plinks"><a href="https://yikai-wang.github.io/nvg/">project page</a><span class="sep">/</span><a href="https://arxiv.org/abs/2508.12811">arXiv</a><span class="sep">/</span><a href="https://github.com/Yikai-Wang/NVG">code</a></div>
+      </div>
+    </div>
+
+    <div class="paper">
+      <a href="https://wusize.github.io/projects/Harmon"><img class="thumb" src="images/harmon.jpg" alt="Harmon framework diagram" loading="lazy"></a>
+      <div>
+        <a class="ptitle" href="https://wusize.github.io/projects/Harmon">Harmonizing Visual Representations for Unified Multimodal Understanding and Generation</a>
+        <div class="authors">Size Wu, Wenwei Zhang, Lumin Xu, Sheng Jin, Zhonghua Wu, <b>Qingyi Tao</b>, Wentao Liu, Wei Li, Chen Change Loy</div>
+        <div class="venue">ICCV, 2025</div>
+        <div class="plinks"><a href="https://wusize.github.io/projects/Harmon">project page</a><span class="sep">/</span><a href="https://arxiv.org/abs/2503.21979">arXiv</a><span class="sep">/</span><a href="https://github.com/wusize/Harmon">code</a></div>
+      </div>
+    </div>
+
+    <div class="paper">
+      <a href="https://pq-yang.github.io/projects/MatAnyone/"><img class="thumb" src="images/matanyone.jpg" alt="MatAnyone video matting results" loading="lazy"></a>
+      <div>
+        <a class="ptitle" href="https://pq-yang.github.io/projects/MatAnyone/">MatAnyone: Stable Video Matting with Consistent Memory Propagation</a>
+        <div class="authors">Peiqing Yang, Shangchen Zhou, Jixin Zhao, <b>Qingyi Tao</b>, Chen Change Loy</div>
+        <div class="venue">CVPR, 2025</div>
+        <div class="plinks"><a href="https://pq-yang.github.io/projects/MatAnyone/">project page</a><span class="sep">/</span><a href="https://arxiv.org/abs/2501.14677">arXiv</a><span class="sep">/</span><a href="https://github.com/pq-yang/MatAnyone">code</a></div>
+      </div>
+    </div>
+
+    <div class="paper">
+      <a href="https://arxiv.org/abs/2505.23661"><img class="thumb" src="images/openuni.jpg" alt="OpenUni benchmark results" loading="lazy"></a>
+      <div>
+        <a class="ptitle" href="https://arxiv.org/abs/2505.23661">OpenUni: A Simple Baseline for Unified Multimodal Understanding and Generation</a>
+        <div class="authors">Size Wu, Zhonghua Wu, Zerui Gong, <b>Qingyi Tao</b>, Sheng Jin, Qinyue Li, Wei Li, Chen Change Loy</div>
+        <div class="venue">arXiv, 2025</div>
+        <div class="plinks"><a href="https://arxiv.org/abs/2505.23661">arXiv</a><span class="sep">/</span><a href="https://github.com/wusize/OpenUni">code</a></div>
+      </div>
+    </div>
+
+    <div class="paper">
+      <a href="https://arxiv.org/abs/2309.10810"><img class="thumb" src="images/pgdiff.jpg" alt="PGDiff face restoration overview" loading="lazy"></a>
+      <div>
+        <a class="ptitle" href="https://arxiv.org/abs/2309.10810">PGDiff: Guiding Diffusion Models for Versatile Face Restoration via Partial Guidance</a>
+        <div class="authors">Peiqing Yang, Shangchen Zhou, <b>Qingyi Tao</b>, Chen Change Loy</div>
+        <div class="venue">NeurIPS, 2023</div>
+        <div class="plinks"><a href="https://arxiv.org/abs/2309.10810">arXiv</a><span class="sep">/</span><a href="https://github.com/pq-yang/PGDiff">code</a></div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Other Publications</h2>
+  <ul class="compact">
+    <li><a class="t" href="https://arxiv.org/abs/2506.13465">SA-LUT: Spatial Adaptive 4D Look-Up Table for Photorealistic Style Transfer</a><br>Zerui Gong, Zhonghua Wu, <b>Qingyi Tao</b>, Qinyue Li, Chen Change Loy<br><span class="venue">ICCV, 2025</span></li>
+    <li><a class="t" href="https://mlanthology.org/aaai/2024/luo2024aaai-modeling/">Modeling Continuous Motion for 3D Point Cloud Object Tracking</a><br>Zhipeng Luo, Gongjie Zhang, Changqing Zhou, Zhonghua Wu, <b>Qingyi Tao</b>, Lewei Lu, Shijian Lu<br><span class="venue">AAAI, 2024</span></li>
+    <li><a class="t" href="https://arxiv.org/abs/2312.08730">Towards Robust and Expressive Whole-body Human Pose and Shape Estimation</a><br>Hui En Pang, Zhongang Cai, Lei Yang, <b>Qingyi Tao</b>, Zhonghua Wu, Tianwei Zhang, Ziwei Liu<br><span class="venue">NeurIPS, 2023</span></li>
+    <li><a class="t" href="https://openaccess.thecvf.com/content_CVPR_2020/html/Wu_Exploring_Bottom-Up_and_Top-Down_Cues_With_Attentive_Learning_for_Webly_CVPR_2020_paper.html">Exploring Bottom-up and Top-down Cues with Attentive Learning for Webly Supervised Object Detection</a><br>Zhonghua Wu, <b>Qingyi Tao</b>, Guosheng Lin, Jianfei Cai<br><span class="venue">CVPR, 2020</span></li>
+    <li><a class="t" href="https://arxiv.org/abs/1907.04052">Improving Deep Lesion Detection Using 3D Contextual and Spatial Attention</a><br><b>Qingyi Tao</b>, Zongyuan Ge, Jianfei Cai, Jianxiong Yin, Simon See<br><span class="venue">MICCAI, 2019</span></li>
+    <li><a class="t" href="https://arxiv.org/abs/1707.08721">Exploiting Web Images for Weakly Supervised Object Detection</a><br><b>Qingyi Tao</b>, Hao Yang, Jianfei Cai<br><span class="venue">IEEE Transactions on Multimedia, 2019</span></li>
+    <li><a class="t" href="https://arxiv.org/abs/1811.08599">M2E-Try On Net: Fashion from Model to Everyone</a><br>Zhonghua Wu, Guosheng Lin, <b>Qingyi Tao</b>, Jianfei Cai<br><span class="venue">ACM Multimedia, 2019</span></li>
+    <li><a class="t" href="https://arxiv.org/abs/1711.05954">Zero-Annotation Object Detection with Web Knowledge Transfer</a><br><b>Qingyi Tao</b>, Hao Yang, Jianfei Cai<br><span class="venue">ECCV, 2018</span></li>
+    <li><a class="t" href="https://arxiv.org/abs/1803.07464">VQA-E: Explaining, Elaborating, and Enhancing Your Answers for Visual Questions</a><br>Qing Li, <b>Qingyi Tao</b>, Shafiq Joty, Jianfei Cai, Jiebo Luo<br><span class="venue">ECCV, 2018</span></li>
+  </ul>
+  <p class="lead" style="padding:0 12px;margin-top:12px">Full list on <a href="https://scholar.google.com/citations?user=fMXnSGMAAAAJ&amp;hl=en">Google Scholar</a>.</p>
+
+  <h2>Experience</h2>
+  <ul class="cv">
+    <li><span class="yr">2021 – present</span><span>Senior Research Scientist, SenseTime, Singapore</span></li>
+    <li><span class="yr">2018 – 2021</span><span>Data Scientist, NVIDIA, Singapore</span></li>
+    <li><span class="yr">2015 – 2018</span><span>Research Assistant, Nanyang Technological University</span></li>
+  </ul>
+
+  <h2>Education</h2>
+  <ul class="cv">
+    <li><span class="yr">2017 – 2021</span><span>Ph.D., MMLab@NTU, Nanyang Technological University</span></li>
+    <li><span class="yr">2011 – 2015</span><span>B.Eng. in Computer Science, Nanyang Technological University, First-Class Honours</span></li>
+  </ul>
+
+  <footer>Last updated November 2026</footer>
+</div>
+</body>
+</html>
